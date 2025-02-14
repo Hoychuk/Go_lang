@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Калькулятор складу сухої та горючої маси</h1>
+        <form method="post">
+            <label>H (%): <input type="text" name="H"></label>
+            <label>C (%): <input type="text" name="C"></label>
+            <label>S (%): <input type="text" name="S"></label>
+            <label>N (%): <input type="text" name="N"></label>
+            <label>O (%): <input type="text" name="O"></label>
+            <label>W (%): <input type="text" name="W"></label>
+            <label>A (%): <input type="text" name="A"></label>
+            <button type="submit">Розрахувати</button>
+        </form>
+
+        {{if .Kpc}}
+        <div class="result">
+            <h2>Результати:</h2>
+            <p>Коефіцієнт переходу до сухої маси: {{.Kpc}}</p>
+            <p>Коефіцієнт переходу до горючої маси: {{.Kpg}}</p>
+            
+            <h3>Склад сухої маси:</h3>
+            <p>H = {{.H_dry}}%, C = {{.C_dry}}%, S = {{.S_dry}}%, N = {{.N_dry}}%, O = {{.O_dry}}%, A = {{.A_dry}}%</p>
+
+            <h3>Склад горючої маси:</h3>
+            <p>H = {{.H_comb}}%, C = {{.C_comb}}%, S = {{.S_comb}}%, N = {{.N_comb}}%, O = {{.O_comb}}%</p>
+
+            <h3>Нижча теплота згоряння:</h3>
+            <p>Робоча маса: {{.Qrn}} МДж/кг</p>
+            <p>Суха маса: {{.Qcn}} МДж/кг</p>
+            <p>Горюча маса: {{.Qgn}} МДж/кг</p>
+        </div>
+        {{end}}
+
+        <a class="back-link" href="/">Повернутися на головну</a>
+    </div>
+</body>
+</html>

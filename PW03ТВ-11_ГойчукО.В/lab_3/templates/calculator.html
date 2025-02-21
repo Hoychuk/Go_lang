@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Калькулятор розрахунку прибутку від сонячних електростанцій з встановленою системою прогнозування сонячної потужності</h1>
+        <form method="post">
+            <label>Потужність (МВт): <input type="text" name="Power"></label>
+            <label>Початкова ппохибка: <input type="text" name="Error1"></label>
+            <label>Зменшена похибка: <input type="text" name="Error2"></label>
+            <label>Вартість (грн/кВт*год): <input type="text" name="Price"></label>
+            <button type="submit">Розрахувати</button>
+        </form>
+
+        {{if .profit1}}
+        <div class="result">
+            <h2>Результати:</h2>
+            <h3>До вдосконалення системи:</h3>
+            <p>Прибуток: {{.profit1}} тис. грн</p>
+            <p>Втрати: {{.lose1}} тис. грн</p>
+            <p>Загалом: {{.result1}} тис. грн</p>
+            <h3>Після вдосконалення системи:</h3>
+            <p>Прибуток: {{.profit2}} тис. грн</p>
+            <p>Втрати: {{.lose2}} тис. грн</p>
+            <p>Загалом: {{.result2}} тис. грн</p>
+        </div>
+        {{end}}
+
+        <a class="back-link" href="/">Повернутися на головну</a>
+    </div>
+</body>
+</html>

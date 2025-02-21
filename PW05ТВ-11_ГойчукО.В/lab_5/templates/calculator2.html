@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Калькулятор показників емісії тверди частинок та валових викидів</h1>
+        <form method="post">
+            <label>Збитки аварійних вимкнень (грн/кВт*год): <input type="text" name="zPerA"></label>
+            <label>Збитки планових вимкнень (грн/кВт*год): <input type="text" name="zPerP"></label>
+            <label>Частота відмов: <input type="text" name="omega"></label>
+            <label>Середній час відновлення трансформатора: <input type="text" name="tV"></label>
+            <label>Pm: <input type="text" name="Pm"></label>
+            <label>Tm: <input type="text" name="Tm"></label>
+            <label>Середній час планового простою: <input type="text" name="kP"></label>
+            <button type="submit">Розрахувати</button>
+        </form>
+
+        {{if .mWnedA}}
+        <div class="result">
+            <h2>Результати:</h2>
+            <p>Математичне сподівання аварійного недовідпущення електроенергії: {{.mWnedA}} кВт*год</p>
+            <p>Математичне сподівання планового недовідпущення електроенергії: {{.mWnedP}} кВт*год</p>
+            <p>Математичне сподівання збитків від переривання електропостачання: {{.mZper}} грн</p>
+        </div>
+        {{end}}
+
+        <a class="back-link" href="/">Повернутися на головну</a>
+    </div>
+</body>
+</html>

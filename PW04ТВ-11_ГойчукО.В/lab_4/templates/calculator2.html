@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Калькулятор струмів КЗ на шинах 10 кВ ГПП</h1>
+        <form method="post">
+            <label>Потужність (МВ*А): <input type="text" name="P"></label>
+            <label>Середя номінальна напруга (кВ): <input type="text" name="Usn"></label>
+            <button type="submit">Розрахувати</button>
+        </form>
+
+        {{if .X}}
+        <div class="result">
+            <h2>Результати:</h2>
+            <p>Опори елементів заступної схеми: {{.Xc}} Ом і {{.Xt}} Ом</p>
+            <p>Сумарний опір: {{.X}} Ом</p>
+            <p>Початкове діюче значення струму трифазного КЗ: {{.Ip0}} кА</p>
+        </div>
+        {{end}}
+
+        <a class="back-link" href="/">Повернутися на головну</a>
+    </div>
+</body>
+</html>

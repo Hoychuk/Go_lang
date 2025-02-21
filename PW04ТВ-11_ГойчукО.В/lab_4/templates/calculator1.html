@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Калькулятор кабелів для живлення двотрансформаторної підстанції</h1>
+        <form method="post">
+            <label>Струм КЗ (кА): <input type="text" name="I"></label>
+            <label>Час вимикання (с): <input type="text" name="t"></label>
+            <label>Навантаженння (кВ*А): <input type="text" name="Sm"></label>
+            <label>Е. густина (А/мм^2): <input type="text" name="jEk"></label>
+            <button type="submit">Розрахувати</button>
+        </form>
+
+        {{if .Im}}
+        <div class="result">
+            <h2>Результати:</h2>
+            <p>Розрахунковий струм для нормального режиму: {{.Im}} А</p>
+            <p>Розрахунковий струм після аварійного режиму: {{.ImPA}} А</p>
+            <p>Економічний переріз: {{.sEk}} мм^2</p>
+            <p>Оптимальний переріз: {{.s}} мм^2</p>
+        </div>
+        {{end}}
+
+        <a class="back-link" href="/">Повернутися на головну</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Калькулятор показників емісії тверди частинок та валових викидів</h1>
+        <form method="post">
+            <label>Маса вугілля (т): <input type="text" name="Coal"></label>
+            <label>Маса мазуту (т): <input type="text" name="Masut"></label>
+            <label>Об'єм газу (м^3): <input type="text" name="Gas"></label>
+            <button type="submit">Розрахувати</button>
+        </form>
+
+        {{if .ECoal}}
+        <div class="result">
+            <h2>Результати:</h2>
+            <h3>При спалюванні твердого вугілля:</h3>
+            <p>Показник емісії: {{.kCoal}} г/ГДЖ</p>
+            <p>Валовий викид: {{.ECoal}} т</p>
+            <h3>При спалюванні мазуту:</h3>
+            <p>Показник емісії: {{.kMasut}} г/ГДЖ</p>
+            <p>Валовий викид: {{.EMasut}} т</p>
+            <h3>При спалюванні природнього газу:</h3>
+            <p>Показник емісії: {{.kGas}} г/ГДЖ</p>
+            <p>Валовий викид: {{.EGas}} т</p>
+            <p>При спалюванні природного газу тверді частинки відсутні, тому значення завжди буде рівне "нулю"</p>
+        </div>
+        {{end}}
+
+        <a class="back-link" href="/">Повернутися на головну</a>
+    </div>
+</body>
+</html>
